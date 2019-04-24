@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_power.c                                         :+:      :+:    :+:   */
+/*   ft_strrew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pdemian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/14 17:08:41 by pdemian           #+#    #+#             */
-/*   Updated: 2019/03/21 18:56:08 by pdemian          ###   ########.fr       */
+/*   Created: 2019/03/26 18:08:28 by pdemian           #+#    #+#             */
+/*   Updated: 2019/04/15 19:09:13 by pdemian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long long int		ft_power(long long int nb, int pow)
-{
-	long long int		tmp;
+#include "libft.h"
 
-	if (pow == 0 || nb == 1)
-		return (1);
-	tmp = nb;
-	while (--pow)
-		tmp *= nb;
-	return (tmp);
+char		*ft_strrew(char *src)
+{
+	char	*str;
+	int		len;
+	int		i;
+
+	i = 0;
+	len = ft_strlen(src);
+	str = ft_strnew(len);
+	len--;
+	while (len > -1)
+	{
+		str[i] = src[len];
+		i++;
+		len--;
+	}
+	return (str);
 }
