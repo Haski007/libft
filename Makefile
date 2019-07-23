@@ -12,10 +12,10 @@
 
 NAME :=		libft.a
 OBJDIR :=	.obj/
-INCLD :=	libft.h
+INCLD :=	includes/libft.h
 
 CC :=		clang
-CFLAGS :=	-Wall -Wextra -Werror
+CFLAGS :=	-g #-Wall -Wextra -Werror
 
 SRCS :=		ft_memset.c \
 				ft_bzero.c \
@@ -88,7 +88,19 @@ SRCS :=		ft_memset.c \
 				ft_u_itoa.c \
 				u_itoa_base.c \
 				get_next_line.c \
-				ft_del.c
+				ft_del.c \
+				is_whitespace.c \
+				ft_strcdup.c \
+				ft_strwhile.c \
+				ft_lstdelast.c \
+				ft_lstpush.c \
+				ft_lstfree.c \
+				types_a.c \
+				types_b.c \
+				x_type.c \
+				manage.c \
+				parsing.c \
+				ft_printf.c
 
 OBJS :=		$(addprefix $(OBJDIR), $(SRCS:%.c=%.o))
 

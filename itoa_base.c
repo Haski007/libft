@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <limits.h>
+#include "includes/libft.h"
 
 static int		get_abs(int num)
 {

@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_lstpush.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pdemian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/07 17:21:03 by pdemian           #+#    #+#             */
-/*   Updated: 2018/11/07 17:31:57 by pdemian          ###   ########.fr       */
+/*   Created: 2019/07/13 19:54:54 by pdemian           #+#    #+#             */
+/*   Updated: 2019/07/13 19:54:55 by pdemian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+void			ft_lstpush(t_list **alst, t_list *new)
 {
-	t_list	*list;
-	t_list	*tmp;
+	t_list	*elem;
 
-	if (!alst || !*alst)
-		return ;
-	list = *alst;
-	while (list)
+	if (*alst)
 	{
-		tmp = list->next;
-		del(list, list->content_size);
-		list = tmp;
+		elem = *alst;
+		while (elem->next)
+			elem = elem->next;
+		elem->next = new;
 	}
-	*alst = NULL;
+	else
+		*alst = new;
 }

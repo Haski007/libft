@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_strwhile.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pdemian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/07 17:21:03 by pdemian           #+#    #+#             */
-/*   Updated: 2018/11/07 17:31:57 by pdemian          ###   ########.fr       */
+/*   Created: 2019/07/04 17:19:23 by pdemian           #+#    #+#             */
+/*   Updated: 2019/07/04 17:19:24 by pdemian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
-
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+char	*ft_strwhile(const char *s, int c)
 {
-	t_list	*list;
-	t_list	*tmp;
+	int		i;
+	char	*str;
 
-	if (!alst || !*alst)
-		return ;
-	list = *alst;
-	while (list)
-	{
-		tmp = list->next;
-		del(list, list->content_size);
-		list = tmp;
-	}
-	*alst = NULL;
+	str = (char *)s;
+	i = 0;
+	while (str[i] != c)
+		i++;
+	str[i] = '\0';
+	while (str[++i])
+		str[i] = '\0';
+	return (str);
 }
